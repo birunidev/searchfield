@@ -1,0 +1,112 @@
+@mixin tablet {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+
+
+body {
+    background: #9C44AA;
+    color: #F4F4F4;
+    font-family: 'Montserrat';
+}
+
+.container {
+    width: 90%;
+    margin: 100px auto 0;
+    text-align: center;
+
+
+    h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .search-box {
+        position: relative;
+
+        width: 278px;
+        margin: 0 auto;
+        transition: 1s all ease-out;
+
+        @include tablet {
+            width: 400px;
+        }
+
+        .input-style {
+
+            background: none;
+            border: none;
+            cursor: ponter;
+            width: 30%;
+            padding: 10px 20px;
+            transition: .4s width ease-out, .4s background ease-out;
+            border-radius: 20px;
+            color: #9C44AA;
+            font-family: 'Montserrat';
+
+            @include tablet {
+                width: 20%;
+            }
+
+            &::placeholder {
+                color: #F4F4F4;
+                font-family: 'Montserrat';
+
+            }
+
+            &:focus {
+                border: none;
+                padding: 10px 20px;
+                border-radius: 30px;
+                font-family: 'Montserrat';
+                color: #474747;
+                width: 80%;
+                top: 50%;
+                left: 50%;
+
+                .btn {
+                    right: 10% !important;
+                }
+
+                &::placeholder {
+                    color: rgb(214, 214, 214);
+
+
+
+                }
+            }
+        }
+
+        .btn {
+            border: none;
+            position: absolute;
+            // top: 20%;
+            // right: 7%;
+            transform: translate(-45px, 10px);
+            background: none;
+            color: #F4F4F4;
+            transition: .4s all ease-out;
+            font-family: 'Montserrat';
+            font-weight: bold;
+        }
+
+        &:hover {
+            .input-style {
+                background: #F4F4F4;
+                border-radius: 20px;
+
+                &::placeholder {
+                    color: #9C44AA;
+                }
+            }
+
+            .btn {
+                color: #9C44AA;
+
+            }
+        }
+
+    }
+}
